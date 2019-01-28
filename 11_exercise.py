@@ -4,6 +4,8 @@ Created on 24 jan. 2019
 @author: jvanbiervliet
 '''
 
+from operator import itemgetter
+
 def collecteer_namen():
     namen = {}
     invoer = input('Geef een naam in of stop met - :')
@@ -15,10 +17,19 @@ def collecteer_namen():
 def geef_scores(namen):
     for i in namen:
         score = input('Geef de score van ' + i + ': ')
-        namen.update({i: int(score)})        
+        namen.update({i: float(score)})        
 
-names = {}
-names = collecteer_namen()
-geef_scores(names)
+def toon_top_drie(namen):
+    student_tuples = namen.items();
+    gesorteerd = sorted(student_tuples, key=itemgetter(1))
+    aantal_leerlingen = len(gesorteerd)
+    print ('Mijn drie beste leerlingen zijn:')
+    for i in range(aantal_leerlingen-1, aantal_leerlingen-4,-1):        
+        print (gesorteerd[i])
 
-print(names)
+
+namen = {}
+namen = collecteer_namen()
+geef_scores(namen)
+toon_top_drie(namen)
+
