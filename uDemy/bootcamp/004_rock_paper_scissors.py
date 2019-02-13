@@ -17,9 +17,7 @@ win_text = ""
 if player1 == 'r':
     win_text = "Player 1 chose rock.. "
     if player2 == 'p':
-        win_text += "Player 2 wins !!!"
-    elif player2 == 'r':
-        win_text = "it\'s a tie"
+        win_text += "Player 2 wins !!!"      
     else:
         win_text += "Player 1 wins !!!"
 elif player1 == 'p':
@@ -28,16 +26,16 @@ elif player1 == 'p':
         win_text += "Player1 wins !!!"
     elif player2 == 's':
         win_text += "Player 2 wins !!!"
-    else:
-        win_text = "It\'s a tie"
 elif player1 == 's':
     win_text = "Player 1 chose scissors.. "
     if player2 == 'r':
         win_text += "Player 2 wins !!!"
     elif player2 == 'p':
         win_text += "Player1 wins !!!"
-    else:
-        win_text = "It\'s a tie"
+elif player1 == player2:
+    win_text = "it\'s a tie"
+else:
+    win_text = "Invalid choice !!!!!"
         
 print(win_text)
     
