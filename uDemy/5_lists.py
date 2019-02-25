@@ -10,6 +10,6 @@ five_elements[2] = 'tijd hebben om'
 print(five_elements)
 
 three_elements = ['one', 'thruu', 'teeth']
-eight_elements = five_elements + three_elements
+eight_elements = five_elements + three_elements    
 
 print(eight_elements)
