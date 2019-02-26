@@ -9,6 +9,7 @@ def test_loop():
     for letter in "Wat is een beerdiertje ?":
         print(letter, end=' ')
 
+
 def fibonacci():
     print('\n\n********************** Fibonacci sequence *************************')
     bereik = int(input("Geef een getal in: "))
@@ -20,4 +21,17 @@ def fibonacci():
         fib = volgende
         volgende = tmp
     
-fibonacci()
+
+def loop_and_range_exercise():
+    x = 0
+    for nummer in range(11,  21,  2):
+        x += nummer
+    print("De som van alle oneven getallen tussen 10 en 20 (inbegrepen) is {}".format(x))
+    
+    
+def repeater_exercise():
+    aantal_keer = int(input('Hoeveel keer ... ? : '))
+    for i in range(1,  aantal_keer + 1):
+        print(i)
+        
+repeater_exercise()
