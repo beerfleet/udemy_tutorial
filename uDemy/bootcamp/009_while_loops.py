@@ -35,12 +35,11 @@ def voer_uit_tot_i_is_vijf():
     print(f"Het duurde {i} keer om 5 te genereren ... ")
 
 
-def raad_getal():
+def raad_getal_game():
     opnieuw = 'j'
     while opnieuw.upper() == "JA" or opnieuw.upper() == "J" :
         geheim_getal = randint(1,  10)
-        raad_getal = 0
-        uitvoer = ""
+        raad_getal = 0        
         while raad_getal != geheim_getal:
             raad_getal = int(input("Raad een getal tussen 1 en 10: "))
             if raad_getal < geheim_getal:
@@ -53,4 +52,4 @@ def raad_getal():
         opnieuw = input("Wil je opnieuw spelen ? : ")
     
 
-raad_getal()
+raad_getal_game()
