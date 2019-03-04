@@ -98,19 +98,6 @@ def lijst_join():
     ptjoin = papatanga.join(lijst)
     print(ptjoin)
 
-def operaties():
-    lijst = ['Een',  2.0,  2,  False]
-    lijst_append(lijst)
-    lijst_extend(lijst)    
-    element = lijst_pop(lijst)
-    lijst_insert(lijst,  element)
-    lijst_reverse(lijst)
-    lijst_remove(lijst)
-    lijst_index(lijst)
-    lijst_count(lijst)
-    lijst_join()
-
-
 def lijst_test():
     # Create a list called instructors
     instructors = []
@@ -149,6 +136,32 @@ def lijst_vergelijk():
     print(f"Lijst 4 is lijst 1 ? {lijst_vier is lijst_een}")    
     print(lijst_zes)
     print(lijst_zeven_slice)
+    
+    
+def lijst_alle_naar_string(lijst):
+    scheid(" -- Allen naar strings ---")
+    string_lijst = [ str(element) for element in lijst]
+    print(string_lijst)
+    return string_lijst
+
+def operaties():
+    lijst = ['Een',  2.0,  2,  False]
+    lijst_append(lijst)
+    lijst_extend(lijst)    
+    element = lijst_pop(lijst)
+    lijst_insert(lijst,  element)
+    lijst_reverse(lijst)
+    lijst_remove(lijst)
+    lijst_index(lijst)
+    lijst_count(lijst)
+    lijst_join()
+    sorteerbare_lijst = lijst_alle_naar_string(lijst)
+    sorteerbare_lijst.sort()
+    print(sorteerbare_lijst)
 
 
-lijst_vergelijk()
+operaties()
+
+
+
+
