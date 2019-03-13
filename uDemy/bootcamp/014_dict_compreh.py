@@ -40,4 +40,4 @@ def convert_to_dic():
     answer = { kv[0]:kv[1] for kv in person}
     print (answer)
 
-convert_to_dic()
+upper_case()
