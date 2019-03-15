@@ -23,4 +23,48 @@ def generate_events():
 def yell(something):
     return ("{}!".format(something.upper()))
     
-print(yell("een fles cola"))
+def default_param(number,  power = 2):
+    return number**power
+    
+def speak(animal="dog"):
+    if animal == "pig":
+        return "oink"
+    elif animal == "duck":
+        return "quack"
+    elif animal == "cat":
+        return "meow"
+    elif animal == "dog":
+        return "woof"
+    else:
+        return "?"
+        
+def no_order(first,  second):
+    return f"{first},  {second}"
+    
+def print_order():
+    scheid("Order")
+    print(no_order(first="jan",  second="Pier"))
+    print(no_order(second="Pier",  first="jan"))
+    
+
+instr = 'jan'
+def say_hello():    
+    return f'Hello {instr}'
+    
+def concat_hello():
+    global instr
+    instr += 'wakamole'
+    return instr
+    
+def say_bye():
+    instr = 'PETER'
+    return f"Bye {instr}"
+    
+total = 99
+def increment():
+    global total
+    total += 1
+    return total    
+    
+
+print(concat_hello())
