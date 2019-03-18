@@ -99,3 +99,38 @@ def calculate(make_float, operation, first,  second, message="The result is"):
 
 # print(calculate(make_float=False, operation='add', message='You just added', first=2, second=4))
 # print(calculate(make_float=True, operation='divide', first=3.5, second=5))
+
+def test_cube():
+    cube = lambda num: num ** 3
+    two = cube(2)
+    three = cube(3)
+    eight = cube(8)
+    return [two,  three ,  eight]
+    
+#♥ print(test_cube())
+
+def try_lambda():
+    nums = [2,  4,  6,  8,  10]
+    doubles = map(lambda num: num*2,  nums) # is a map object, can be converted to list
+    return doubles
+
+# print(try_lambda())
+# print(list(try_lambda()))
+
+def decrement_list(lijst):
+    decr = map(lambda num: num - 1,  lijst)
+    return list(decr)
+    
+# print(decrement_list([0,  1,  2]))
+# print(decrement_list([20,  14,  11]))
+
+def i_hate_a(names):
+    no_a = filter(lambda name: not 'a' in name.lower(),  names)
+    return list(no_a)
+    
+# print(i_hate_a(['Jantje',  'Pieter',  'Annebelle',  'Leentje']))
+
+def remove_negatives(numbers):
+    return list(filter(lambda n: n >= 0,  numbers))
+    
+print(remove_negatives([-7,  0,  1,  2,  3,  4,  5]))
