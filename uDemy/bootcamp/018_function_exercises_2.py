@@ -134,3 +134,4 @@ def remove_negatives(numbers):
     return list(filter(lambda n: n >= 0,  numbers))
     
 print(remove_negatives([-7,  0,  1,  2,  3,  4,  5]))
+
