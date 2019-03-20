@@ -133,5 +133,5 @@ def i_hate_a(names):
 def remove_negatives(numbers):
     return list(filter(lambda n: n >= 0,  numbers))
     
-print(remove_negatives([-7,  0,  1,  2,  3,  4,  5]))
+# print(remove_negatives([-7,  0,  1,  2,  3,  4,  5]))
 

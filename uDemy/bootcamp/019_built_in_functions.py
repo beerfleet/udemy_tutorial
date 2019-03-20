@@ -1,5 +1,6 @@
 import sys
-import my_functions
+import statistics
+# import my_functions
 
 def toon_functionaliteit():
     # print(sum.__doc__)
@@ -70,5 +71,18 @@ def max_magnitude(rij):
 def sum_even_values(*getallen):
     return sum(getal for getal in getallen if getal % 2 == 0) #if any(True for el in list(getallen) if el % 2 == 0) else 0
         
-        
-print(sum_even_values(1,  7,  9,  13,  99,  1))
+# print(sum_even_values(1,  7,  9,  13,  99,  1))
+
+def sum_floats(*args):
+    return sum(el for el in args if isinstance(el,  float))
+    
+# print(sum_floats(1,2,3,4,5))
+
+def scores():
+    midterms = [80,  91,  78]
+    finals = [98,  89,  53]
+    students = ['dan',  'ang',  'kate']
+    final_grades = {trio[0]:statistics.mean([trio[1],  trio[2]]) for trio in zip(students,  midterms,  finals)}
+    return final_grades
+    
+print(scores())
