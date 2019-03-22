@@ -85,4 +85,32 @@ def scores():
     final_grades = {trio[0]:statistics.mean([trio[1],  trio[2]]) for trio in zip(students,  midterms,  finals)}
     return final_grades
     
-print(scores())
+# print(scores())
+    
+def names_and_scores():
+    midterms = [80,  91,  78]
+    finals = [98,  89,  53]
+    students = ['dan',  'ang',  'kate']
+    return zip(students, map(lambda pair: max(pair),  zip(midterms,  finals)))
+    
+# print(dict(names_and_scores()))
+    
+def interleave(str1,  str2):
+    list = [it for it in zip(str1,  str2)]
+    concat_str = ''
+    for li in list:
+        for t in li:
+            concat_str += t
+    return concat_str
+    
+# print((interleave('lzr',  'iad')))
+
+def triple_and_filter(lijst):
+    return list(map(lambda triple: 3*triple,  filter(lambda div_by_four: div_by_four % 4 == 0,  lijst)))
+    
+# print(triple_and_filter([6, 8, 10, 12]))
+
+def extract_full_name(list_of_dict):        
+    return [''.join(d['first'] + ' ' + d['last']) for d in [el for el in list_of_dict]]
+    
+print(extract_full_name([{'first': 'Elie', 'last': 'Schoppik'}, {'first': 'Colt', 'last': 'Steele'}, {'first': 'Abe', 'last': 'Burnes'}, {'first': 'Pierce', 'last': 'Dorothy'}]))
