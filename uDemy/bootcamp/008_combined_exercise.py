@@ -8,4 +8,5 @@ def oefening():
         else:
             uitvoer = f"{nummer} is oneven"
         print(uitvoer)
+
 oefening()
