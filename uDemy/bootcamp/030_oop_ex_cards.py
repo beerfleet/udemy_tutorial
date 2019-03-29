@@ -6,7 +6,7 @@ class Card:
         self.value = value
 
     def __repr__(self):
-        return f"{self.value} of {self.suit}"
+        return "{} of {}".format(self.value, self.suit)
 
 class Deck:    
     suits = ("Hearts", "Diamonds", "Clubs", "Spades")
@@ -20,16 +20,15 @@ class Deck:
                 Deck.cards.append(Card(suit, value))
 
     def __repr__(self):
-        return f"Deck of {self.count()} cards"
+        return "Deck of {} cards".format(self.count())
 
     def _deal(self, amount):
         to_deal = []        
-        if self.count() >= amount:
-            for n in range(0, amount):
-                to_deal.append(Deck.cards.pop())
-            return to_deal
-        else:
+        if self.count() < amount:
             raise ValueError("All cards have been dealt")
+        for n in range(0, amount):
+            to_deal.append(Deck.cards.pop())
+        return to_deal
 
     def count(self):
         return len(Deck.cards)
@@ -44,11 +43,17 @@ class Deck:
         if self.count() < 52:
             raise ValueError("Only full decks can be shuffled")
         shuffle(Deck.cards)
+        return self
 
 deck = Deck()
-deck.shuffle()
 print(deck)
-hand = deck.deal_hand(5)
-deck = Deck()
 deck.shuffle()
+hand = deck.deal_hand(5)
+hand = deck.deal_hand(5)
+hand = deck.deal_hand(5)
+hand = deck.deal_hand(5)
+hand = deck.deal_hand(5)
+hand = deck.deal_hand(5)
+
+deck = Deck()
 print(hand)
