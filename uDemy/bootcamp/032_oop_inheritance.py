@@ -1,22 +1,26 @@
 class Animal:
     cool = True
 
+    def __init__(self, name, species):
+        self._name = name
+        self._species = species
+
     def make_sound(self, sound):
         print("This animal says {}".format(sound))
 
+    def __repr__(self):
+        return "{} is a {}".format(self._name, self._species)
+
 class Cat(Animal):
-    pass
+    def __init__(self, name, breed, toy):
+        super().__init__(name, "Cat")
+        self._breed = breed
+        self._toy = toy
 
-""" 
-puss = Cat()
+    def make_sound(self):
+        print("This animal says Meeeeoowwww")
 
-puss.make_sound("Shrrriiiiiiiek")
-print(Animal.cool)
-print(Cat.cool)
-print(puss.cool)
- """
-
-class Human:
+class Human(Animal):
     def __init__(self, first, last, age):
         self._first = first
         self._last = last
@@ -36,9 +40,7 @@ class Human:
         else:
             raise ValueError("Age cannot be negative")
     
-
-
-jan = Human("Jan", "Bier", 9)
-print(jan)
-jan.age = 37
-print(jan)
+cat = Cat("Jake", "Drunken cat", "birdie!")
+cat2 = Cat("Kit", "Kateter", "mossel")
+cat2.make_sound()
+print(cat2._species)
