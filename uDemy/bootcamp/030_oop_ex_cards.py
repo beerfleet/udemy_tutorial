@@ -23,18 +23,23 @@ class Deck:
         return "Deck of {} cards".format(self.count())
 
     def _deal(self, amount):
-        to_deal = []        
-        if self.count() < amount:
+        to_deal = []
+        if self.count() == 0:
             raise ValueError("All cards have been dealt")
-        for n in range(0, amount):
-            to_deal.append(Deck.cards.pop())
+        if self.count() >= amount:
+            for n in range(0, amount):
+                to_deal.append(Deck.cards.pop())            
+        elif self.count() < amount:
+            for n in range(0, self.count()):
+                to_deal.append(Deck.cards.pop())        
         return to_deal
+
 
     def count(self):
         return len(Deck.cards)
 
     def deal_card(self):
-        return self._deal(1)
+        return self._deal(1)[0]
 
     def deal_hand(self, size):
         return self._deal(size)
@@ -48,12 +53,10 @@ class Deck:
 deck = Deck()
 print(deck)
 deck.shuffle()
-hand = deck.deal_hand(5)
-hand = deck.deal_hand(5)
-hand = deck.deal_hand(5)
-hand = deck.deal_hand(5)
+
+hand = deck.deal_hand(45)
 hand = deck.deal_hand(5)
 hand = deck.deal_hand(5)
 
-deck = Deck()
+
 print(hand)
