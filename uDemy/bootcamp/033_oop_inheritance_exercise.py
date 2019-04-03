@@ -48,5 +48,8 @@ class Penguin(Ambulatory, Aquatic):
         Aquatic.__init__(self, name = name)
         print("***** PENGUIN INIT ********")
 
+""" 
 pengo = Penguin("Pengo")
 print(pengo.greet())
+ """
+
