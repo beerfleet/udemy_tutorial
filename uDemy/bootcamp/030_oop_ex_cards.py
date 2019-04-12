@@ -8,7 +8,7 @@ class Card:
     def __repr__(self):
         return "{} of {}".format(self.value, self.suit)
 
-class Deck:    
+class Deck:
     suits = ("Hearts", "Diamonds", "Clubs", "Spades")
     values = ("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K")
     cards = []
