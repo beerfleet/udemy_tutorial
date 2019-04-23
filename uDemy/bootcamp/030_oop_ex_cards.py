@@ -22,6 +22,15 @@ class Deck:
     def __repr__(self):
         return "Deck of {} cards".format(self.count())
 
+    def __iter__(self):
+        card_iterator = iter(Deck.cards)
+        while True:
+            try:
+                card = next(card_iterator)
+            except StopIteration:
+                break            
+
+
     def _deal(self, amount):
         to_deal = []
         if self.count() == 0:
