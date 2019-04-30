@@ -20,4 +20,4 @@ def divide(a, b):
     return a / b
 
 repeat_msg("Hello", '1')
-divide('4.54564', '0')
+print(divide('4.54564', '0'))
