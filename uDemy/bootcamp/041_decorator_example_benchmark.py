@@ -20,8 +20,15 @@ def gen_expression(bereik):
     print(f"De som is {som}")
 
 @time_process
-def comp_expression(bereik):
+def list_expression(bereik):
     som = sum([nr for nr in range(1, bereik+1)])
 
-gen_expression(10000000)
-comp_expression(10000000)
+@time_process
+def dict_expression(bereik):
+    com = sum({nr for nr in range(1, bereik+1)})
+
+timing = 30000000
+
+gen_expression(timing)
+list_expression(timing)
+dict_expression(timing)
