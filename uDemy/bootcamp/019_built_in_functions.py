@@ -96,14 +96,14 @@ def names_and_scores():
 # print(dict(names_and_scores()))
     
 def interleave(str1,  str2):
-    list = [it for it in zip(str1,  str2)]
+    lst = [it for it in zip(str1,  str2)]
     concat_str = ''
-    for li in list:
+    for li in lst:
         for t in li:
             concat_str += t
     return concat_str
     
-# print((interleave('lzr',  'iad')))
+print((interleave('lzr',  'iad')))
 
 def triple_and_filter(lijst):
     return list(map(lambda triple: 3*triple,  filter(lambda div_by_four: div_by_four % 4 == 0,  lijst)))
@@ -113,4 +113,4 @@ def triple_and_filter(lijst):
 def extract_full_name(list_of_dict):        
     return [''.join(d['first'] + ' ' + d['last']) for d in [el for el in list_of_dict]]
     
-print(extract_full_name([{'first': 'Elie', 'last': 'Schoppik'}, {'first': 'Colt', 'last': 'Steele'}, {'first': 'Abe', 'last': 'Burnes'}, {'first': 'Pierce', 'last': 'Dorothy'}]))
+#print(extract_full_name([{'first': 'Elie', 'last': 'Schoppik'}, {'first': 'Colt', 'last': 'Steele'}, {'first': 'Abe', 'last': 'Burnes'}, {'first': 'Pierce', 'last': 'Dorothy'}]))
