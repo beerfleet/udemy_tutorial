@@ -1,0 +1,7 @@
+'r' : open file for reading (default).
+'w' : open file for writing. Creates if non existing.
+'x' : open file for excusive creation. Fails if file exists.
+'r' : open file for appending at the end without truncating it. Creates new file, if does not exist.
+'t' : open file in text mode (default).
+'b' : open file in binary mode.
+'+' : open file for updating (reading and writing.
