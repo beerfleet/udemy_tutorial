@@ -22,7 +22,7 @@ def decorate_file_io_demos(fn):
 def schrijf_bestand(bestand, tekst):
     bestand.write(tekst)
 
-with open('C:/DEV/Python3/Oefenen/uDemy/bootcamp/poem.txt', 'w') as bestand:
+with open('C:/DEV/Python3/Oefenen/uDemy/bootcamp/docs/poem.txt', 'w') as bestand:
     schrijf_bestand(bestand, 'De kat op de sofa ...\n')
     schrijf_bestand(bestand, 'Stomme kat, ga eraf!\n')
     schrijf_bestand(bestand, 'Haar in de lucht ...\n')
