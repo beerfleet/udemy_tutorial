@@ -21,9 +21,10 @@ def lees_tekst_in(pad):
 
 
 if __name__ == "__main__":    
-    pad = 'C:/DEV/Python3/Oefenen/uDemy/bootcamp/story.txt'
-    woorden_teller = lees_tekst_in(pad)
-    with open('C:/DEV/Python3/Oefenen/uDemy/bootcamp/story_results.txt', mode='a', encoding='utf-8') as resultaten:
+    pad = 'C:/DEV/Python3/Oefenen/uDemy/bootcamp/docs/story.txt'
+    pad_thuis = 'C:/DEV/Python_code/udemy_tutorial/uDemy/bootcamp/docs/story.txt'
+    woorden_teller = lees_tekst_in(pad_thuis)
+    with open('C:/DEV/Python_code/udemy_tutorial/uDemy/bootcamp/docs/story_results.txt', mode='a', encoding='utf-8') as resultaten:
         for k,v in sorted(woorden_teller.items(), key=lambda kol_twee: kol_twee[1], reverse=True):
             resultaten.write(f"{k}:{v}\n")
             #  print(k, v)
