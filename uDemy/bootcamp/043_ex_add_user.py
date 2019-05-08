@@ -28,7 +28,14 @@ def find_user(voornaam, achternaam):
             rij_teller += 1
         return "{} {} not found.".format(voornaam, achternaam)
 
+def update_users(o_vnaam, o_anaam, n_vnaam, n_anaam):
+    with open(pad_thuis, 'w+', encoding='utf-8', newline='') as bestand:
+        bestand_lijnen = bestand.readlines()
+        print(bestand_lijnen)
+
+
 if __name__ == "__main__":
     # add_user('Jan', 'Bier')
     # print_users()
-    print(find_user("Chaka", "Zulu"))
+    # print(find_user("Chaka", "Zulu"))
+    update_users("Colt", "Steele", "Hello", "World")
