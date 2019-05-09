@@ -26,23 +26,5 @@ html = """
 """
 
 soup = BeautifulSoup(html, "html.parser")
-specials = soup.select(".special")
-
-# print element name + attributes
-for el in specials:
-  print(el.name)
-  print(el.attrs)
-
-# css selectors => returns a list
-d = soup.select("[data-example]")
-e = soup.select("body div")
-
-# element resultset
-f = soup.find_all("li")
-g = soup.find_all(class_='special')
-h = soup.find_all(attrs={"data-example":"yes"})
-
-print(type(h))
-print(soup.find("h3")['data-example']) # print h3 data-example attribute
-print(soup.find("div")['id']) # print div id attribute
-print(soup.select("body > div > ol > li.regular")) # print selector
+# print(soup.select("body"))
+help(soup)
