@@ -5,7 +5,7 @@ from csv import reader, writer
 
 def retrieve_page_content(url):
     response = requests.get(url)
-    #return response.text   # returns string
+    # return response.text   # returns string
     return response.content   # returns byte object
 
 
@@ -16,9 +16,10 @@ def seek_elements(content, selector="div"):
 
 def write_to_file(content):
     pad = "C:/DEV/Python3/Oefenen/uDemy/bootcamp/docs/scrape.txt"
-    with open(pad, mode='w', encoding='utf8', newline='') as scrape_file:
-        for el in content:
-            scrape_file.write(el.text)
+    pad_thuis = "C:/DEV/Python_code/udemy_tutorial/uDemy/bootcamp/docs/scrape.txt"
+    with open(pad_thuis, mode='w', encoding='utf8', newline='') as scrape_file:
+        html_writer = writer(scrape_file)
+        html_writer.writerows(content)
 
 
 if __name__ == "__main__":
