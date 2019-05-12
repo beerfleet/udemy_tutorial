@@ -13,28 +13,27 @@ class Scraper():
         html: html elements list from content
         """
         self.url = url
-        self.quotes_file_path = "C:/DEV/Python_code/udemy_tutorial/uDemy/bootcamp/docs/quotes.txt"
-        self.quotes_list = []
+        self.quotes_file_path = "C:/DEV/Python_code/udemy_tutorial/uDemy/bootcamp/docs/quotes.txt"        
+        self.quotes_dict = {}
 
-    def fetch_quotes_list(self):
+    def fetch_quotes(self):
         response = requests.get(self.url)
         html = BeautifulSoup(response.content, "html.parser")
         self.quotes_list = html.select(".quote")
+        self.quotes_dict = {
+            'name': html.select(".quote .author")[0].text,
+            'text': html.select(".quote .text")[0].text,
+            'bio': html.select(".quote").find()
+            }
         next_tag = html.select(".next")
         while next_tag:
             volgende_pagina = next_tag[0].find("a")["href"]            
             response = requests.get(self.url + volgende_pagina)
             html = BeautifulSoup(response.content, "html.parser")
             self.quotes_list.extend(html.select(".quote"))
-            next_tag = html.select(".next")        
-
-    def build_quotes_file(self):
-        with open(self.quotes_file_path, mode="w", encoding='utf8', newline='') as quotes_file:
-            quotes_csv = writer(quotes_file)
-            quotes_csv.writerows(self.quotes_list)
+            next_tag = html.select(".next")    
 
 if __name__ == "__main__":
     url = "http://quotes.toscrape.com"
     scraper = Scraper(url)
-    scraper.fetch_quotes_list()
-    scraper.build_quotes_file()
+    scraper.fetch_quotes()    
