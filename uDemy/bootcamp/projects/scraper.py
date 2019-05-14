@@ -18,6 +18,14 @@ class Scraper():
         self._fetch_quotes()
         self._choose_quote()
         self.nr_of_guesses = 4
+        self._display_game_title()
+
+    def _display_game_title(self):
+        print('\n\n\n\n')
+        print("**********************************")
+        print("*       WHO's QUOTE IS THIS      *")
+        print("**********************************")
+
 
     def _add_quotes_to_list(self, html):
         """From html abstraction, retrieve all quotes class elements
@@ -94,6 +102,12 @@ class Scraper():
         self._hint_helper(2, ".author-born-location", "Place of birth")
         self._hint_helper(1, ".author-description", "Bio hint")
 
+    def play_again(self):
+        nog_eens = input("Wanna play again ? : ")
+        if nog_eens.lower() in ['ja', 'j', 'y', 'yes']:
+            return True
+        return False
+
     def play(self):
         while self.nr_of_guesses > 0:
             answer = self._ask_question()  # acquire answer from user
@@ -104,11 +118,13 @@ class Scraper():
                 self.nr_of_guesses -= 1
                 print("Wrong answer.\n")
                 self._hint()  # hints
-
         print("All guesses used up, you lose !!! \n")
 
 
 if __name__ == "__main__":
     url = "http://quotes.toscrape.com"
-    scraper = Scraper(url)
-    scraper.play()    
+    play = True
+    while play:        
+        scraper = Scraper(url)
+        scraper.play()
+        play = scraper.play_again()
