@@ -23,4 +23,5 @@ def parse_date(date_str):
     return None
     # return zip_obj
 
-print(parse_date('00.10.1111'))
+def censor(text):
+    
