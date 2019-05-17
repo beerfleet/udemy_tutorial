@@ -12,8 +12,9 @@ def intro():
     print(res) #
 
 def extract_phone(input_str):
-    phone_regex = re.compile(r'0\d{3}\d{2}')
-    return phone_regex.search(input_str)
+    phone_regex = re.compile(r'\b0\d{3}/\d{2}\.\d{2}\.\d{2}\b')
+    match = phone_regex.search(input_str)
+    return match.group() if match else None
 
 def is_valid_phone():
     tel = '0468/13.92.15'
