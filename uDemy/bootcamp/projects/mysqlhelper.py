@@ -51,3 +51,20 @@ class MySqlHelper:
     else:
       print(f"Geaffecteerde rijen: {self.conn.affected_rows()}")
       self.conn.close()
+
+  def execute_in_bulk(self, sql, args=None):
+    '''OTHER THEN SELECT
+    '''
+    try:
+      self.sql = sql
+      self._connect()
+      with self.conn.cursor() as cursor:
+        cursor.executemany(sql, args)
+        self.conn.commit()
+    except pymysql.OperationalError as e:
+      print(e.args)
+    except pymysql.MySQLError as e:
+      print(e.args)
+    else:
+      print(f"Geaffecteerde rijen: {self.conn.affected_rows()}")
+      self.conn.close()
