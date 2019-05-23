@@ -18,7 +18,7 @@ class MySqlHelper:
     return self.conn if self.conn else None
 
   def fetch_data(self, sql, args=None):
-    '''SELECT    
+    '''PERFORM A SELECT
     '''
     self.sql = sql
     self._connect()
