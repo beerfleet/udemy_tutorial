@@ -30,7 +30,7 @@ class MySqlHelper:
     except pymysql.MySQLError as e:
       print(e.args)
     else:
-      print(f"Geaffecteerde rijen: {num_rows}")
+      # print(f"Geaffecteerde rijen: {num_rows}")
       results = cursor.fetchall()
       self.conn.close()
       return results
