@@ -30,7 +30,7 @@ class MySqlHelper:
     except pymysql.MySQLError as e:
       print(e.args)
     else:
-      # print(f"Geaffecteerde rijen: {num_rows}")
+      # print(f"Geaffecteerde rijen: {num_rows}") # DEBUG
       results = cursor.fetchall()
       self.conn.close()
       return results
@@ -49,7 +49,7 @@ class MySqlHelper:
     except pymysql.MySQLError as e:
       print(e.args)
     else:
-      print(f"Geaffecteerde rijen: {self.conn.affected_rows()}")
+      # print(f"Geaffecteerde rijen: {self.conn.affected_rows()}") # DEBUG
       self.conn.close()
 
   def execute_in_bulk(self, sql, args=None):
@@ -66,5 +66,5 @@ class MySqlHelper:
     except pymysql.MySQLError as e:
       print(e.args)
     else:
-      print(f"Geaffecteerde rijen: {self.conn.affected_rows()}")
+      # print(f"Geaffecteerde rijen: {self.conn.affected_rows()}") # DEBUG
       self.conn.close()

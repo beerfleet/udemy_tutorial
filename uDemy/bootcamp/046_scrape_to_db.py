@@ -17,9 +17,12 @@ class Grabber():
     else:
         response = requests.get(self.base_url)
     bs = BeautifulSoup(response.content, "html.parser")
-    self.next_page = bs.select('.next a')[0]["href"]
-    if 'catalogue' not in self.next_page:
-      self.next_page.replace('/page', '/catalogue/page')
+    if bs.select('.next a'):
+      self.next_page = bs.select('.next a')[0]["href"]
+    else:
+      self.next_page = []
+    if self.next_page and 'catalogue' not in self.next_page:
+      self.next_page = self.next_page.replace('page', 'catalogue/page')
     return bs.find_all('article', {'class': 'product_pod'})
 
   def translate_rating(self, rating):
@@ -44,9 +47,11 @@ class Grabber():
     return book_list
 
   def execute(self):
+    print('Even geduld terwijl de data wordt verzameld ... ')
     while self.next_page:
       data_set = self.build_dataset(self.next_page)
       self.store_in_bulk(data_set)
+    print('Alle records zijn opgeslagen !')
 
 
 if __name__ == "__main__":
