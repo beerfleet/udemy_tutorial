@@ -13,7 +13,14 @@ def remove_every_other(lijst):
     index += 1
   return nieuwe_lijst
 
+def remove_with_comprehension(lijst):
+  return [it for it in lijst[::2]]
+
 
 print(remove_every_other([1,2,3,4,5]))
 print(remove_every_other([5,1,2,4,1]))
 print(remove_every_other([1]))
+
+print(remove_with_comprehension([1,2,3,4,5]))
+print(remove_with_comprehension([5,1,2,4,1]))
+print(remove_with_comprehension([1]))
