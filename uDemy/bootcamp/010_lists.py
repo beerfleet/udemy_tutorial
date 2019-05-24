@@ -160,8 +160,7 @@ def operaties():
     print(sorteerbare_lijst)
 
 
-operaties()
+# operaties()
 
-
-
-
+lijst = ['Een',  2.0,  2,  False]
+lijst_index(lijst)
