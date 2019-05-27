@@ -10,9 +10,9 @@ should still go through the end of the list.
 def range_in_list(lijst, start_index = 0, stop_index = 0):
   if not stop_index:
     stop_index = len(lijst)
-  return sum(it for it in lijst[start_index:stop_index + 1])
+  return sum(lijst[start_index:stop_index + 1])
 
-print(range_in_list([],0,1))
+print(range_in_list([1,2,3,4],0,100))
 
 '''
 range_in_list([1,2,3,4],0,2) #  6
