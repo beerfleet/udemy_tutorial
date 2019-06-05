@@ -1,3 +1,7 @@
+""" 
+This imports data from the initial xl disk space shrinkage file
+"""
+
 import openpyxl
 import datetime
 import time
@@ -14,13 +18,15 @@ def acquire_insert_data():
   sheet = doc['Plot']
   # kolom C: datums
   col_c = sheet['C']
+  # str_col_c = [str(el.value) for el in col_c]
   # kolom D: % vrij
   col_d = sheet['D']
-  return [(datetime.datetime(el[0].value).strftime('%Y-%m-%d'), el[1].value) for el in zip(col_c, col_d)]
+  # return str_col_c[1:]
+  return [(str(el[0].value), str(el[1].value)) for el in zip(col_c, col_d)][1:]
 
 
 if __name__ == "__main__":
   insert_data = acquire_insert_data()
-  print(insert_data)
-  # mysql = MySqlHelper('localhost', 'root', '', 'pydb')
-  # mysql.execute_query(query, insert_data)
+  # print(insert_data)
+  mysql = MySqlHelper('localhost', 'root', '', 'pydb')
+  mysql.execute_in_bulk(query, insert_data)
