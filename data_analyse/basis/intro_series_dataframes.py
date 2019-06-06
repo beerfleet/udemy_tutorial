@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib as plt
 plt.use('TkAgg')
 import pylab
+from sqlalchemy import create_engine
 
 
 df = pd.read_csv('C:/DEV/Python3/Oefenen/data_analyse/basis/docs/train.csv')
@@ -15,3 +16,9 @@ df = pd.read_csv('C:/DEV/Python3/Oefenen/data_analyse/basis/docs/train.csv')
 # pylab.show(df.boxplot(column='ApplicantIncome'))
 # pylab.show(df.boxplot(column='ApplicantIncome', by='Education'))
 # pylab.show(df['LoanAmount'].hist(bins=50))
+
+engine = create_engine('mysql+pymysql://root:@localhost/pydb')
+
+query = "SELECT * FROM opslag"
+df2 = pd.read_sql(query, engine)
+pass
